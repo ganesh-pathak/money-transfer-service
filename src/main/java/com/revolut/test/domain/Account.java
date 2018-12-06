@@ -11,8 +11,6 @@ public class Account {
     @GeneratedValue
     private long accountNumber;
 
-    private long customerId;
-
     private Money balance;
 
     private String currencyCode;
@@ -26,6 +24,10 @@ public class Account {
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Transaction> transactions = new ArrayList<Transaction>();
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id")
+    private Customer customer;
+
     public Account() {
         // for hibernate use only
     }
@@ -38,10 +40,6 @@ public class Account {
 
     public long getAccountNumber() {
         return accountNumber;
-    }
-
-    public long getCustomerId() {
-        return customerId;
     }
 
     public Money getBalance() {
@@ -77,7 +75,7 @@ public class Account {
         setBalance(getBalance().add(amount));
     }
 
-    private void withdraw(Money amount) {
+    public void withdraw(Money amount) {
         addTransaction(amount.negate());
         setBalance(getBalance().subtract(amount));
     }

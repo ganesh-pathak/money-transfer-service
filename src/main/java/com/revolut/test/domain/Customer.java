@@ -1,9 +1,8 @@
 package com.revolut.test.domain;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -22,6 +21,9 @@ public class Customer {
     private Address address;
 
     private String ssn;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Account> accounts = new ArrayList<Account>();
 
     public Customer() {
         // for hibernate use only
@@ -57,5 +59,9 @@ public class Customer {
 
     public String getSsn() {
         return ssn;
+    }
+
+    public List<Account> getAccounts() {
+        return accounts;
     }
 }

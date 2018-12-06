@@ -13,9 +13,7 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 import java.math.BigDecimal;
 
-import static com.revolut.test.domain.MoneyTransferStatus.COMPLETED;
-import static com.revolut.test.domain.MoneyTransferStatus.FAILED;
-import static com.revolut.test.domain.MoneyTransferStatus.FAILED_DUE_TO_INSUFFICIENT_FUNDS;
+import static com.revolut.test.domain.MoneyTransferStatus.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
