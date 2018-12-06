@@ -35,13 +35,12 @@ mvn clean install
 
 This also runs following tests.
 
-com.revolut.test.MoneyTransferIntegrationTest (Integration tests)
-
-com.revolut.test.controller.AccountControllerTest
-com.revolut.test.controller.MoneyTransferControllerTest
-com.revolut.test.domain.AccountTest
-com.revolut.test.service.AccountServiceTest
-com.revolut.test.service.TransferServiceTest
+ - com.revolut.test.MoneyTransferIntegrationTest (Integration tests)
+ - com.revolut.test.controller.AccountControllerTest
+ - com.revolut.test.controller.MoneyTransferControllerTest
+ - com.revolut.test.domain.AccountTest
+ - com.revolut.test.service.AccountServiceTest
+ - com.revolut.test.service.TransferServiceTest
 
 ## Run 
 
